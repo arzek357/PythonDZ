@@ -9,14 +9,18 @@
 """
 
 
-def test_function(places: str) -> int:
+def check_places(places: str) -> int:
     result = 0
     counter = 0
     for place in places:
-        if place == '0' and counter == 0 and :
-
-        elif place == '0' and (places[counter - 1] + places[counter + 1] == 0):
-            result += 1
-
-
+        if place == '0':
+            if counter == 0 and places[counter + 1] == '0':
+                result += 1
+            elif counter == len(places)-1 and places[counter - 1] == '0':
+                result += 1
+            elif places[counter - 1] == '0' and places[counter + 1] == '0':
+                result += 1
+        counter += 1
     return result
+
+print(check_places("0100100010001010"))
